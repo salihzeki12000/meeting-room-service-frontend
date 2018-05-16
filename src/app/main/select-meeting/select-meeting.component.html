@@ -1,0 +1,5 @@
+<div class="align-middle justify-content-center text-center">
+  <label class="lbTitle"> {{ 'COMMON_SELECT_MEETING_ROOM' | translate | async }} </label>
+  <systelab-select [description]="desCombo" [id]="idMeeting" [values]="comboOptionList" (change)="comboChangeEvent($event)">
+  </systelab-select>
+</div>

@@ -1,0 +1,75 @@
+.currentMeeting{
+    height: 54vh;
+    padding-top: 15vh;
+}
+.active {
+    background-color: #44a503;
+    color:#ffffff;
+    border-radius: 5px;
+}
+.endingMetting{
+    height: 54vh;
+}
+.disableCurrentMeeting{
+    height: 54vh;
+    padding-top: 15vh;
+}
+.nextMeeting{
+    height: 15vh;
+    padding-left: 100px;
+}
+.disableNextMeeting{
+    height: 15vh;
+}
+.faMenu{
+    position: absolute;
+    top: 125px;
+    z-index: 9999;
+    right: 45px;
+    font-size: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    -webkit-transition:all 0.5s ease-out;
+    -moz-transition:all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.containerMeetings{
+    -webkit-transition:all 0.5s ease-out;
+    -moz-transition:all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.faMenu:hover{
+    color: #e6eef4;
+}
+.faMenu.open {
+    color: #ffffff;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari 3-8 */
+    transform: rotate(90deg);
+}
+h1 {
+    font-size: 3.5rem;
+}
+.liMeeting{
+    color:#939290;
+    border-bottom: #ccc;
+}
+.header {
+    background-color: #000000;
+    color:#ffffff;
+    height: 12vh;
+    width:100% ;
+    img {
+        height: 12vh;
+    }
+    h2 {
+        font-size: 3rem;
+        padding-top: 1.5rem;
+        font-weight: 100;
+    }
+}
+.border-grey {
+    border-left: 2px solid #7c7d7e !important;
+}

@@ -1,0 +1,68 @@
+<div class="row  p-0 m-0">
+  <div (click)="openMenu()" [class.open]="listOpen" class="faMenu">
+    <i class="fa fa-bars"></i>
+  </div>
+  <div class="row header">
+    <div class="col-md-9 p-0">
+      <img class="float-left" [src]="room.image" />
+      <h2 class="pl-3  float-left align-middle">{{room.name}}</h2>
+    </div>
+    <div class="col-md-3 p-3 text-center">
+      <div>
+        {{day}}
+      </div>
+      <div>
+        <h1>{{time}}</h1>
+      </div>
+    </div>
+  </div>
+  <div [class.col-md-12]="!listOpen" class=" p-0 m-0 containerMeetings " [class.col-md-8]="listOpen">
+    <div class="row statusBar hv11" [class.bg-success]="!currentMeeting.id" [class.bg-danger]="currentMeeting.id">
+      <h1 class="lbTitle" *ngIf="!currentMeeting.id">{{ 'COMMON_FREE_ROOM' | translate | async }}</h1>
+      <h1 class="lbTitle" *ngIf="currentMeeting.id">{{ 'COMMON_BUSY_ROOM' | translate | async }}</h1>
+    </div>
+
+    <div class="currentMeeting text-center" *ngIf="currentMeeting.id">
+      <h1 class="lbTitle color-grey">{{ 'COMMON_CURRENT_MEETING' | translate | async }} </h1>
+      <h2 class="lbTitle color-grey">{{currentMeeting.who}}</h2>
+      <h3 class="lbTitle color-grey">{{pad(currentMeeting.startDateTime.getHours())}}:{{pad(currentMeeting.startDateTime.getMinutes())}} - {{pad(currentMeeting.endDateTime.getHours())}}:{{pad(currentMeeting.endDateTime.getMinutes())}}</h3>
+    </div>
+    <div class="disableCurrentMeeting text-center" *ngIf="!currentMeeting.id">
+      <h1 class="lbTitle color-grey">{{ 'COMMON_NO_CURRENT_MEETING' | translate | async }} </h1>
+    </div>
+    <div class="text-center row p-3">
+      <img class="imgLogo mx-auto" src="/img/Logo_Werfen_01.png" />
+    </div>
+    <div class="nextMeeting p-3 bg-grey-light" *ngIf="nextMeeting.id">
+      <h3 class="lbTitle color-grey">{{ 'COMMON_NEXT_MEETING' | translate | async }} </h3>
+      <div class="pl-3">
+        <label class="lbTitle color-grey">{{nextMeeting.who}}</label>
+        <p>
+          <small class="lbTitle color-grey">{{pad(nextMeeting.startDateTime.getHours())}}:{{pad(nextMeeting.startDateTime.getMinutes())}} - {{pad(nextMeeting.endDateTime.getHours())}}:{{pad(nextMeeting.endDateTime.getMinutes())}}</small>
+        </p>
+      </div>
+
+    </div>
+    <div class="disableNextMeeting text-center p-5 bg-grey-light color-grey" *ngIf="!nextMeeting.id">
+      <h3>{{ 'COMMON_NO_NEXT_MEETING' | translate | async }} </h3>
+    </div>
+  </div>
+  <div class="col-md-4 pl-0 pr-0 border-grey" *ngIf="listOpen">
+    <ul class="p-0">
+      <li class="pt-3 pb-3 text-left pl-4 bg-grey-light hv11">
+        <h4 class="lbTitle color-grey pl-0 pt-3">{{ 'COMMON_TODAY_MEETING' | translate | async }}</h4>
+      </li>
+      <li *ngFor="let meet of meetingsList" class="liMeeting mt-2 pl-3 pr-3">
+        <div class="p-3" [class.active]="meet.id == currentMeeting.id">
+          <label class="">{{meet.who}}</label>
+          <div>
+            <small class="">{{pad(meet.startDateTime.getHours())}}:{{pad(meet.startDateTime.getMinutes())}} - {{pad(meet.endDateTime.getHours())}}:{{pad(meet.endDateTime.getMinutes())}}</small>
+          </div>
+        </div>
+      </li>
+      <li class="pt-5 pb-2 text-center" *ngIf="meetingsList.length == 0">
+        <label>{{ 'COMMON_NO_NEXT_MEETING' | translate | async }}</label>
+      </li>
+    </ul>
+  </div>
+</div>

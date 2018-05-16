@@ -1,0 +1,11 @@
+{
+    "COMMON_SELECT_MEETING_ROOM": "Select Meeting Room",
+    "COMMON_NO_CURRENT_MEETING":"There is no Meeting",
+    "COMMON_CURRENT_MEETING":"Current Meeting",
+    "COMMON_NEXT_MEETING":"Next Meeting",
+    "COMMON_NO_NEXT_MEETING":"There are no more meetings scheduled for today",
+    "COMMON_TODAY_MEETING": "Today Meetings",
+    "COMMON_NO_TODAY_MEETING": "There are no scheduled Meetings today",
+    "COMMON_FREE_ROOM":"Free Room",
+    "COMMON_BUSY_ROOM":"Busy Room"
+}
