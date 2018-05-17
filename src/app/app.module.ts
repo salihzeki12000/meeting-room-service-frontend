@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,23 +12,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app.routing';
-import { ApiClientService } from "../app/common/api/index.service";
-import { Variables, BASE_PATH } from '../app/common/variables';
+import { ApiClientService } from '../app/common/api/index.service';
+import { BASE_PATH, Variables } from '../app/common/variables';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MeetingComponent } from './main/meeting/meeting.component';
 import { SelectMeetingComponent } from './main/select-meeting/select-meeting.component';
 import { environment } from '../environments/environment';
-import { RoomAvailabilityComponent } from './main/room-availability/room-availability.component';
+import { RoomAvailabilityComponent } from './main/meeting/room-availability/room-availability.component';
+import { RoomHeaderComponent } from './main/meeting/room-header/room-header.component';
+import { RoomStatusComponent } from './main/meeting/room-status/room-status.component';
+import { TodayMeetingsComponent } from './main/meeting/today-meetings/today-meetings.component';
+import { CurrentMeetingComponent } from './main/meeting/current-meeting/current-meeting.component';
+import { NextMeetingComponent } from './main/meeting/next-meeting/next-meeting.component';
 
 @NgModule({
-  declarations: [
+  declarations:    [
     AppComponent,
     MainComponent,
     MeetingComponent,
     SelectMeetingComponent,
     RoomAvailabilityComponent,
+    RoomHeaderComponent,
+    RoomStatusComponent,
+    TodayMeetingsComponent,
+    CurrentMeetingComponent,
+    NextMeetingComponent
   ],
-  imports: [
+  imports:         [
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -41,12 +50,12 @@ import { RoomAvailabilityComponent } from './main/room-availability/room-availab
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [
+  providers:       [
     ApiClientService, Variables,
-    { provide: BASE_PATH, useValue: environment.BASE_PATH },
+    {provide: BASE_PATH, useValue: environment.BASE_PATH},
   ],
-  entryComponents: [
-  ],
-  bootstrap: [AppComponent]
+  entryComponents: [],
+  bootstrap:       [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
