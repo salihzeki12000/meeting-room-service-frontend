@@ -38,10 +38,7 @@ export class MeetingComponent implements OnInit {
     setInterval(() => {
       this.scheduleTasks();
     }, 300000);
-    const dat = new Date();
-    const d = this.global.weekday[dat.getDay()];
-    const month = this.global.month[dat.getMonth()];
-    this.day = d + ', ' + month + ' ' + dat.getDate();
+    
   }
   public scheduleTasks() {
     this.data.ApiMeetingsPost().subscribe((res) => {
@@ -50,6 +47,9 @@ export class MeetingComponent implements OnInit {
   public getTime() {
     const myDate = new Date();
     this.time = this.pad(myDate.getHours()) + ':' + this.pad(myDate.getMinutes());
+    const d = this.global.weekday[myDate.getDay()];
+    const month = this.global.month[myDate.getMonth()];
+    this.day = d + ', ' + month + ' ' + myDate.getDate();
   }
   public loadMeetings(id) {
     this.data.ApiMeetingsGet(0, id).subscribe((res) => {
