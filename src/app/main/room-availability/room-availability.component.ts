@@ -19,6 +19,7 @@ export class RoomAvailabilityComponent implements OnInit {
     }, 60000);
   }
   public loadAvailability() {
+    this.roomsList = [];
     this.data.ApiRoomAvailabilityGet().subscribe((res) => {
       for (let i = 0; i < res.body.length; i++) {
         const rm = new RoomViewModel();

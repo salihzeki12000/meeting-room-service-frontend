@@ -52,6 +52,7 @@ export class MeetingComponent implements OnInit {
     this.day = d + ', ' + month + ' ' + myDate.getDate();
   }
   public loadMeetings(id) {
+    this.meetingsList = [];
     this.data.ApiMeetingsGet(0, id).subscribe((res) => {
       for (let i = 0; i < res.body.length; i++) {
         const meet = new MeetingViewModel();
