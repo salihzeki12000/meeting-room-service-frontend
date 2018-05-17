@@ -7,5 +7,9 @@
     "COMMON_TODAY_MEETING": "Today Meetings",
     "COMMON_NO_TODAY_MEETING": "There are no scheduled Meetings today",
     "COMMON_FREE_ROOM":"Free Room",
-    "COMMON_BUSY_ROOM":"Busy Room"
+    "COMMON_BUSY_ROOM":"Busy Room",
+    "COMMON_NO_ROOMS":"No Rooms Configured",
+    "COMMON_ROOMS_AVAILABILITY":"Rooms Availability",
+    "COMMON_BUSY":"BUSY",
+    "COMMON_FREE":"FREE"
 }

@@ -1,0 +1,16 @@
+<ul class="p-0">
+  <li class="pt-3 pb-3 text-left pl-4 bg-grey-light hv11">
+    <h5 class="lbTitle color-grey pl-0 pr-0 pt-3">{{ 'COMMON_ROOMS_AVAILABILITY' | translate | async }}</h5>
+  </li>
+  <li *ngFor="let room of roomsList" class="liMeeting mt-2 pl-3 pr-3">
+    <div class="p-3">
+      <label class="">{{room.name}}</label>
+
+      <span class="alert alert-success alert-sm ml-3" *ngIf="room.free">{{ 'COMMON_FREE' | translate | async }}</span>
+      <span class="alert alert-danger alert-sm  ml-3" *ngIf="!room.free">{{ 'COMMON_BUSY' | translate | async }}</span>
+    </div>
+  </li>
+  <li class="pt-5 pb-2 text-center" *ngIf="roomsList.length == 0">
+    <label>{{ 'COMMON_NO_ROOMS' | translate | async }}</label>
+  </li>
+</ul>

@@ -38,7 +38,7 @@ export class MeetingComponent implements OnInit {
     setInterval(() => {
       this.scheduleTasks();
     }, 300000);
-    
+
   }
   public scheduleTasks() {
     this.data.ApiMeetingsPost().subscribe((res) => {

@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MeetingComponent } from './main/meeting/meeting.component';
 import { SelectMeetingComponent } from './main/select-meeting/select-meeting.component';
 import { environment } from '../environments/environment';
+import { RoomAvailabilityComponent } from './main/room-availability/room-availability.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { environment } from '../environments/environment';
     MainComponent,
     MeetingComponent,
     SelectMeetingComponent,
+    RoomAvailabilityComponent,
   ],
   imports: [
     BrowserModule,

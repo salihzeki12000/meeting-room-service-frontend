@@ -33,7 +33,7 @@ li{
     cursor:pointer;
 }
 .hv11{
-    height: 11vh;
+    height: 9vh;
 }
 .lbTitle{
     font-weight: 600;
@@ -78,4 +78,11 @@ li{
 }
 .imgLogo{
     height:50px;
+}
+.menuRight{
+    overflow-y: auto;
+    max-height: 79vh;
+}
+.alert-sm {
+    padding: 0.2rem 1rem !important;
 }
