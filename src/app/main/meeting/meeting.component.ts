@@ -71,11 +71,13 @@ export class MeetingComponent implements OnInit {
   }
   public getCurrentMeeting() {
     const now = new Date();
+    let value = 0;
     for (let i = 0; i < this.meetingsList.length; i++) {
       if (!this.currentMeeting.id) {
         const start = this.meetingsList[i].startDateTime;
         const end = this.meetingsList[i].endDateTime;
         if (now > start && now < end) {
+          value = 1;
           this.currentMeeting.id = this.meetingsList[i].id;
           this.currentMeeting.endDateTime = end;
           this.currentMeeting.IdLotus = this.meetingsList[i].IdLotus;
@@ -108,6 +110,9 @@ export class MeetingComponent implements OnInit {
           }
         }
       }
+    }
+    if (value == 0) {
+      this.currentMeeting = new MeetingViewModel();
     }
   }
   public openMenu() {
