@@ -1,0 +1,18 @@
+.faMenu{
+  font-size: 40px;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-transition:all 0.5s ease-out;
+  -moz-transition:all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.faMenu:hover{
+  color: #e6eef4;
+}
+.faMenu.open {
+  color: #ffffff;
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari 3-8 */
+  transform: rotate(90deg);
+}

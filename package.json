@@ -9,10 +9,7 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "electron": "ng build && electron .",
-    "electron-aot": "ng build --prod && electron .",
-    "electron-mac-generator": "electron-packager . --platform=darwin --electron-version=1.6.2"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -62,7 +59,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "^5.3.1",
-    "ts-node": "~3.2.0",
+    "ts-node": "^6.0.3",
     "tslint": "~5.3.2",
     "typescript": "2.7.2",
     "webpack": "^4.8.3",

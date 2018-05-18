@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { I18nService } from 'systelab-translate/lib/i18n.service';
 import { ApiClientService } from '../../common/api/index.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MeetingViewModel, RoomViewModel } from '../../common/api/models';
 import { Variables } from '../../common/variables';
 
-
 @Component({
-  selector: 'app-meeting',
+  selector:    'app-meeting',
   templateUrl: './meeting.component.html',
-  styleUrls: ['./meeting.component.scss']
+  styleUrls:   ['./meeting.component.scss']
 })
 export class MeetingComponent implements OnInit {
   public meetingsList: Array<MeetingViewModel> = [];
@@ -20,6 +19,7 @@ export class MeetingComponent implements OnInit {
   public listOpen = false;
   public time = '';
   public day = '';
+
   constructor(protected i18nService: I18nService, protected data: ApiClientService, private router: Router, protected activatedRoute: ActivatedRoute, protected global: Variables) {
     this.id = this.activatedRoute.snapshot.params['id'];
   }
@@ -29,21 +29,18 @@ export class MeetingComponent implements OnInit {
     this.loadRoomInfo(this.id);
     this.getTime();
     this.scheduleTasks();
-    setInterval(() => {
-      this.getTime();
-    }, 1000);
-    setInterval(() => {
-      this.loadMeetings(this.id);
-    }, 60000);
-    setInterval(() => {
-      this.scheduleTasks();
-    }, 300000);
+    setInterval(() => this.getTime(), 1000);
+    setInterval(() => this.loadMeetings(this.id), 60000);
+    setInterval(() => this.scheduleTasks(), 300000);
 
   }
+
   public scheduleTasks() {
-    this.data.ApiMeetingsPost().subscribe((res) => {
-    });
+    this.data.ApiMeetingsPost()
+      .subscribe((res) => {
+      });
   }
+
   public getTime() {
     const myDate = new Date();
     this.time = this.pad(myDate.getHours()) + ':' + this.pad(myDate.getMinutes());
@@ -51,24 +48,26 @@ export class MeetingComponent implements OnInit {
     const month = this.global.month[myDate.getMonth()];
     this.day = d + ', ' + month + ' ' + myDate.getDate();
   }
+
   public loadMeetings(id) {
     this.meetingsList = [];
-    this.data.ApiMeetingsGet(0, id).subscribe((res) => {
-      for (let i = 0; i < res.body.length; i++) {
-        const meet = new MeetingViewModel();
-        meet.id = res.body[i].idMeeting;
-        meet.endDateTime = new Date(res.body[i].endDateTime);
-        meet.IdLotus = res.body[i].idLotus;
-        meet.Link = '';
-        meet.roomName = res.body[i].roomName;
-        meet.startDateTime = new Date(res.body[i].startDateTime);
-        meet.who = res.body[i].who;
-        this.meetingsList.push(meet);
-      };
-      this.getCurrentMeeting();
-
-    })
+    this.data.ApiMeetingsGet(0, id)
+      .subscribe((res) => {
+        for (let i = 0; i < res.body.length; i++) {
+          const meet = new MeetingViewModel();
+          meet.id = res.body[i].idMeeting;
+          meet.endDateTime = new Date(res.body[i].endDateTime);
+          meet.IdLotus = res.body[i].idLotus;
+          meet.Link = '';
+          meet.roomName = res.body[i].roomName;
+          meet.startDateTime = new Date(res.body[i].startDateTime);
+          meet.who = res.body[i].who;
+          this.meetingsList.push(meet);
+        }
+        this.getCurrentMeeting();
+      });
   }
+
   public getCurrentMeeting() {
     const now = new Date();
     let value = 0;
@@ -111,25 +110,26 @@ export class MeetingComponent implements OnInit {
         }
       }
     }
-    if (value == 0) {
+    if (value === 0) {
       this.currentMeeting = new MeetingViewModel();
     }
   }
-  public openMenu() {
-    if (this.listOpen) {
-      this.listOpen = false;
-    }
-    else {
-      this.listOpen = true;
-    }
+
+  public toogleRoomsOrEvents(status: boolean) {
+    this.listOpen = status;
   }
+
   public loadRoomInfo(id) {
-    this.data.ApiRoomGet(id).subscribe((res) => {
-      this.room.id = res.body.id;
-      this.room.idLotus = res.body.idLotus;
-      this.room.name = res.body.name;
-      this.room.image = '/img/' + res.body.name + '.jpg';
-    });
+    this.data.ApiRoomGet(id)
+      .subscribe((res) => {
+        this.room.id = res.body.id;
+        this.room.idLotus = res.body.idLotus;
+        this.room.name = res.body.name;
+        this.room.image = '/img/' + res.body.name + '.jpg';
+      });
   }
-  public pad(n) { return n < 10 ? '0' + n : n; }
+
+  public pad(n) {
+    return n < 10 ? '0' + n : n;
+  }
 }

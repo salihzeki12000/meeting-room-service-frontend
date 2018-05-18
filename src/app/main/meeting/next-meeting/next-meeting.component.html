@@ -1,0 +1,13 @@
+<div class="nextMeeting p-3 bg-grey-light" *ngIf="meeting.id">
+  <h3 class="lbTitle color-grey">{{ 'COMMON_NEXT_MEETING' | translate | async }} </h3>
+  <div class="pl-3">
+    <label class="lbTitle color-grey">{{meeting.who}}</label>
+    <p>
+      <small class="lbTitle color-grey">{{pad(meeting.startDateTime.getHours())}}:{{pad(meeting.startDateTime.getMinutes())}} - {{pad(meeting.endDateTime.getHours())}}:{{pad(meeting.endDateTime.getMinutes())}}</small>
+    </p>
+  </div>
+
+</div>
+<div class="disableNextMeeting text-center p-5 bg-grey-light color-grey" *ngIf="!meeting.id">
+  <h3>{{ 'COMMON_NO_NEXT_MEETING' | translate | async }} </h3>
+</div>

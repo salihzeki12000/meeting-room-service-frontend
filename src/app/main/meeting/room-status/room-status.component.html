@@ -1,0 +1,11 @@
+<div class="row statusBar w-100 hv11" [class.bg-success]="!meetingId" [class.bg-danger]="meetingId">
+    <div>
+        <h1 class="lbTitle" *ngIf="!meetingId">{{ 'COMMON_FREE_ROOM' | translate | async }}</h1>
+        <h1 class="lbTitle" *ngIf="meetingId">{{ 'COMMON_BUSY_ROOM' | translate | async }}</h1>
+    </div>
+    <div class="ml-auto">
+        <div (click)="openMenu()" [class.open]="listOpen" class="faMenu mr-3 mt-2">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</div>
