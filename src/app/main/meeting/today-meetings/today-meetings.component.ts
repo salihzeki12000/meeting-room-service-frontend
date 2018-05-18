@@ -9,4 +9,8 @@ import { MeetingViewModel } from '../../../common/api/models';
 export class TodayMeetingsComponent {
   @Input() public meetingsList: Array<MeetingViewModel> = [];
   @Input() public currentMeetingId: number;
+  
+  public pad(n) {
+    return n < 10 ? '0' + n : n;
+  }
 }
