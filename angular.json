@@ -141,7 +141,7 @@
         }
       }
     },
-    "Padel & Win Administration-e2e": {
+    "Werfen Metting Room Service-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -167,7 +167,7 @@
       }
     }
   },
-  "defaultProject": "Padel & Win Administration",
+  "defaultProject": "Werfen Metting Room Service",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
