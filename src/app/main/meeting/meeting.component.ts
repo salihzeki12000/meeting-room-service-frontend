@@ -3,7 +3,7 @@ import { I18nService } from 'systelab-translate/lib/i18n.service';
 import { ApiClientService } from '../../common/api/index.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MeetingViewModel, RoomViewModel } from '../../common/api/models';
-import { Variables } from '../../common/variables';
+import { DateUtilService } from '../../common/date-util.service';
 
 @Component({
   selector:    'app-meeting',
@@ -17,19 +17,15 @@ export class MeetingComponent implements OnInit {
   public nextMeeting = new MeetingViewModel();
   public room = new RoomViewModel();
   public listOpen = false;
-  public time = '';
-  public day = '';
 
-  constructor(protected i18nService: I18nService, protected data: ApiClientService, private router: Router, protected activatedRoute: ActivatedRoute, protected global: Variables) {
+  constructor(protected i18nService: I18nService, protected data: ApiClientService, private router: Router, protected activatedRoute: ActivatedRoute, protected dateUtils: DateUtilService) {
     this.id = this.activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
     this.loadMeetings(this.id);
     this.loadRoomInfo(this.id);
-    this.getTime();
     this.scheduleTasks();
-    setInterval(() => this.getTime(), 1000);
     setInterval(() => this.loadMeetings(this.id), 60000);
     setInterval(() => this.scheduleTasks(), 300000);
 
@@ -39,14 +35,6 @@ export class MeetingComponent implements OnInit {
     this.data.ApiMeetingsPost()
       .subscribe((res) => {
       });
-  }
-
-  public getTime() {
-    const myDate = new Date();
-    this.time = this.pad(myDate.getHours()) + ':' + this.pad(myDate.getMinutes());
-    const d = this.global.weekday[myDate.getDay()];
-    const month = this.global.month[myDate.getMonth()];
-    this.day = d + ', ' + month + ' ' + myDate.getDate();
   }
 
   public loadMeetings(id) {
@@ -129,7 +117,4 @@ export class MeetingComponent implements OnInit {
       });
   }
 
-  public pad(n) {
-    return n < 10 ? '0' + n : n;
-  }
 }

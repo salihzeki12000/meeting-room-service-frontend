@@ -12,7 +12,7 @@ export class RoomAvailabilityComponent implements OnInit {
   public roomsList: Array<RoomViewModel> = [];
   constructor(protected i18nService: I18nService, protected data: ApiClientService) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.loadAvailability();
     setInterval(() => this.loadAvailability(), 60000);
   }

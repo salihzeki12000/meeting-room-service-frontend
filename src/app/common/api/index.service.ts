@@ -2,7 +2,6 @@ import { Inject, Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { I18nService } from 'systelab-translate/lib/i18n.service';
-import { Variables } from '../../common/variables';
 import { BASE_PATH } from '../variables';
 import {
   RoomViewModel,
@@ -11,13 +10,13 @@ import {
 /**
 * Created with angular4-swagger-client-generator.
 */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ApiClientService {
 
 
   private domain = "";
 
-  constructor(protected globals: Variables, private http: HttpClient, protected i18nService: I18nService,
+  constructor(private http: HttpClient, protected i18nService: I18nService,
     @Optional() @Inject(BASE_PATH) basePath: string) {
     if (basePath) {
       this.domain = basePath;

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MeetingViewModel } from '../../../common/api/models';
+import { DateUtilService } from '../../../common/date-util.service';
 
 @Component({
   selector:    'app-today-meetings',
@@ -9,8 +10,12 @@ import { MeetingViewModel } from '../../../common/api/models';
 export class TodayMeetingsComponent {
   @Input() public meetingsList: Array<MeetingViewModel> = [];
   @Input() public currentMeetingId: number;
-  
+
+  constructor(private dateUtils: DateUtilService) {
+
+  }
+
   public pad(n) {
-    return n < 10 ? '0' + n : n;
+    return this.dateUtils.pad(n);
   }
 }
