@@ -12,9 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app.routing';
-import { ApiClientService } from '../app/common/api/index.service';
-import { BASE_PATH, Variables } from '../app/common/variables';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BASE_PATH } from '../app/common/variables';
+import { AgGridModule } from 'ag-grid-angular';
+import { DndModule } from 'ng2-dnd';
 import { MeetingComponent } from './main/meeting/meeting.component';
 import { SelectMeetingComponent } from './main/select-meeting/select-meeting.component';
 import { environment } from '../environments/environment';
@@ -23,6 +23,8 @@ import { RoomHeaderComponent } from './main/meeting/room-header/room-header.comp
 import { RoomStatusComponent } from './main/meeting/room-status/room-status.component';
 import { CurrentMeetingComponent } from './main/meeting/current-meeting/current-meeting.component';
 import { NextMeetingComponent } from './main/meeting/next-meeting/next-meeting.component';
+import { GridHeaderContextMenuComponent } from 'systelab-components/widgets/grid/contextmenu/grid-header-context-menu.component';
+import { GridContextMenuComponent } from 'systelab-components/widgets/grid/contextmenu/grid-context-menu.component';
 
 @NgModule({
   declarations:    [
@@ -44,12 +46,15 @@ import { NextMeetingComponent } from './main/meeting/next-meeting/next-meeting.c
     SystelabPreferencesModule.forRoot(),
     SystelabComponentsModule.forRoot(),
     SystelabChartsModule.forRoot(),
-    NgbModule.forRoot(),
+    AgGridModule.withComponents([
+      GridContextMenuComponent,
+      GridHeaderContextMenuComponent
+    ]),
+    DndModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule
   ],
   providers:       [
-    ApiClientService, Variables,
     {provide: BASE_PATH, useValue: environment.BASE_PATH},
   ],
   entryComponents: [],
