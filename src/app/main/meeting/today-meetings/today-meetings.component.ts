@@ -3,15 +3,16 @@ import { MeetingViewModel } from '../../../common/api/models';
 import { DateUtilService } from '../../../common/date-util.service';
 
 @Component({
-  selector:    'app-next-meeting',
-  templateUrl: './next-meeting.component.html',
-  styleUrls:   ['./next-meeting.component.css']
+  selector:    'app-today-meetings',
+  templateUrl: 'today-meetings.component.html',
+  styleUrls:   ['today-meetings.component.scss']
 })
-export class NextMeetingComponent {
-
-  @Input() meeting: MeetingViewModel;
+export class TodayMeetingsComponent {
+  @Input() public meetingsList: Array<MeetingViewModel> = [];
+  @Input() public currentMeetingId: number;
 
   constructor(private dateUtils: DateUtilService) {
+
   }
 
   public pad(n) {
