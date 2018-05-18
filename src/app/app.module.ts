@@ -9,7 +9,6 @@ import { SystelabTranslateModule } from 'systelab-translate';
 import { SystelabPreferencesModule } from 'systelab-preferences';
 import { SystelabChartsModule } from 'systelab-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app.routing';
 import { BASE_PATH } from '../app/common/variables';

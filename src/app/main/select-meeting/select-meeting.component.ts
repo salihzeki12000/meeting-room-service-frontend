@@ -35,6 +35,5 @@ export class SelectMeetingComponent implements OnInit {
           this.comboOptionList.push({description: res.body[i].name, id: res.body[i].id});
         }
       });
-    this.comboOptionList.push({description: 'La 1', id: 1});
   }
 }

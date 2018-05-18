@@ -9,8 +9,7 @@ import { DateUtilService } from '../../../common/date-util.service';
 })
 export class NextMeetingComponent {
 
-  @Input() meeting: MeetingViewModel;
-
+  @Input() public meetingsList: Array<MeetingViewModel> = [];
   constructor(private dateUtils: DateUtilService) {
   }
 
