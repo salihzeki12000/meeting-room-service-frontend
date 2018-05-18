@@ -8,6 +8,17 @@ body,html{
     min-width: 100%;
     max-width: 100%;
 }
+body:-moz-full-screen {
+    background-color: pink;
+  }
+  
+  body:-webkit-full-screen {
+    background-color: pink;
+  }
+  
+  body:fullscreen {
+    background-color: pink;
+  }
 body{
     background-repeat: no-repeat;
     background-position: center top;
@@ -85,4 +96,7 @@ li{
 }
 .alert-sm {
     padding: 0.2rem 1rem !important;
+}
+.upperCase {
+    text-transform: uppercase;
 }

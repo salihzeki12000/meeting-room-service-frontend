@@ -1,10 +1,10 @@
 <div class="currentMeeting text-center" *ngIf="meeting.id">
-  <h1 class="lbTitle color-grey">{{ 'COMMON_CURRENT_MEETING' | translate | async }} </h1>
+  <h1 class="lbTitle color-grey upperCase">{{ 'COMMON_CURRENT_MEETING' | translate | async }} </h1>
   <h2 class="lbTitle color-grey">{{meeting.who}}</h2>
   <h3 class="lbTitle color-grey">{{pad(meeting.startDateTime.getHours())}}:{{pad(meeting.startDateTime.getMinutes())}} - {{pad(meeting.endDateTime.getHours())}}:{{pad(meeting.endDateTime.getMinutes())}}</h3>
 </div>
 <div class="disableCurrentMeeting text-center" *ngIf="!meeting.id">
-  <h1 class="lbTitle color-grey">{{ 'COMMON_NO_CURRENT_MEETING' | translate | async }} </h1>
+  <h1 class="lbTitle color-grey upperCase">{{ 'COMMON_NO_CURRENT_MEETING' | translate | async }} </h1>
 </div>
 <div class="text-center row p-3">
   <img class="imgLogo mx-auto" src="/img/Logo_Werfen_01.png" />

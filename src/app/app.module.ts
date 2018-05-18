@@ -21,7 +21,6 @@ import { environment } from '../environments/environment';
 import { RoomAvailabilityComponent } from './main/meeting/room-availability/room-availability.component';
 import { RoomHeaderComponent } from './main/meeting/room-header/room-header.component';
 import { RoomStatusComponent } from './main/meeting/room-status/room-status.component';
-import { TodayMeetingsComponent } from './main/meeting/today-meetings/today-meetings.component';
 import { CurrentMeetingComponent } from './main/meeting/current-meeting/current-meeting.component';
 import { NextMeetingComponent } from './main/meeting/next-meeting/next-meeting.component';
 
@@ -34,7 +33,6 @@ import { NextMeetingComponent } from './main/meeting/next-meeting/next-meeting.c
     RoomAvailabilityComponent,
     RoomHeaderComponent,
     RoomStatusComponent,
-    TodayMeetingsComponent,
     CurrentMeetingComponent,
     NextMeetingComponent
   ],

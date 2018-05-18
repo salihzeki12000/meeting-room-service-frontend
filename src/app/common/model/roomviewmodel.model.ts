@@ -6,4 +6,5 @@ export class RoomViewModel {
   image: string;
   deleted: boolean;
   free:boolean;
+  freeUntil: string;
 }

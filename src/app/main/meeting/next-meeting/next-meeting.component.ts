@@ -9,7 +9,7 @@ import { MeetingViewModel } from '../../../common/api/models';
 export class NextMeetingComponent {
 
   @Input() meeting: MeetingViewModel;
-
+  @Input() public meetingsList: Array<MeetingViewModel> = [];
   constructor() {
   }
 

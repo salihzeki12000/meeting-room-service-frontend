@@ -1,13 +1,16 @@
-<div class="nextMeeting p-3 bg-grey-light" *ngIf="meeting.id">
-  <h3 class="lbTitle color-grey">{{ 'COMMON_NEXT_MEETING' | translate | async }} </h3>
-  <div class="pl-3">
-    <label class="lbTitle color-grey">{{meeting.who}}</label>
-    <p>
-      <small class="lbTitle color-grey">{{pad(meeting.startDateTime.getHours())}}:{{pad(meeting.startDateTime.getMinutes())}} - {{pad(meeting.endDateTime.getHours())}}:{{pad(meeting.endDateTime.getMinutes())}}</small>
-    </p>
-  </div>
-
+<div class="nextMeeting pl-3 pt-1 bg-grey-light" *ngIf="meetingsList.length > 0">
+  <h3 class="lbTitle color-grey">{{ 'COMMON_NEXT_MEETINGS' | translate | async }} </h3>
+  <ul>
+    <li *ngFor="let meet of meetingsList" class="meeting  pl-3 pr-5">
+      <div>
+        <label class="mb-0">{{meet.who}}</label>
+        <div>
+          <small>{{pad(meet.startDateTime.getHours())}}:{{pad(meet.startDateTime.getMinutes())}} - {{pad(meet.endDateTime.getHours())}}:{{pad(meet.endDateTime.getMinutes())}}</small>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
-<div class="disableNextMeeting text-center p-5 bg-grey-light color-grey" *ngIf="!meeting.id">
+<div class="disableNextMeeting text-center p-5 bg-grey-light color-grey" *ngIf="meetingsList.length == 0">
   <h3>{{ 'COMMON_NO_NEXT_MEETING' | translate | async }} </h3>
 </div>
