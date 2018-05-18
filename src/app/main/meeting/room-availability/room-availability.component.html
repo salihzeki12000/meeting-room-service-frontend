@@ -5,8 +5,8 @@
   <li *ngFor="let room of roomsList" class="room mt-2 pl-3 pr-3">
     <div class="pl-3 pr-3 pt-3">
       <label>{{room.name}}</label>
-      <span class="alert alert-success alert-sm ml-3" *ngIf="room.free">{{ 'COMMON_FREE' | translate | async }}</span>
-      <span class="alert alert-danger alert-sm  ml-3" *ngIf="!room.free">{{ 'COMMON_BUSY' | translate | async }}</span>
+      <span class="alert alert-success alert-sm ml-3 stateRoom" *ngIf="room.free">{{ 'COMMON_FREE' | translate | async }}</span>
+      <span class="alert alert-danger alert-sm  ml-3 stateRoom" *ngIf="!room.free">{{ 'COMMON_BUSY' | translate | async }}</span>
     </div>
     <div class="pl-3 pr-3" *ngIf="room.freeUntil">
         <small><strong>{{ 'COMMON_NEXT_MEETING' | translate | async }} </strong></small> <small>{{pad(room.freeUntil.getHours())}}:{{pad(room.freeUntil.getMinutes())}}</small>

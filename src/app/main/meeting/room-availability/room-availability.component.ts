@@ -37,16 +37,27 @@ export class RoomAvailabilityComponent implements OnInit {
 		const now = new Date();
 		this.data.ApiMeetingsGet(0, rm.id)
 			.subscribe((res) => {
-				let value = false;
-				let i = 0;
-				while (!value) {
-					const start = new Date(res.body[i].startDateTime);
-					if (start > now) {
-						rm.freeUntil = start;
-						value = true;
-						this.roomsList.push(rm);
+				if (res.body.length === 0) {
+					this.roomsList.push(rm);
+				}
+				else {
+					let value = false;
+					let i = 0;
+					while (!value) {
+						if (res.body[i].startDateTime) {
+							const start = new Date(res.body[i].startDateTime);
+							if (start > now) {
+								rm.freeUntil = start;
+								value = true;
+								this.roomsList.push(rm);
+							}
+						}
+						i++;
+						if (res.body.length === i && !value) {
+							value = false;
+							this.roomsList.push(rm);
+						}
 					}
-					i++;
 				}
 			});
 	}
