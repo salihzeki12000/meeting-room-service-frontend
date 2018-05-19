@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { I18nService } from 'systelab-translate/lib/i18n.service';
 import { ApiClientService } from '../../common/api/index.service';
 import { Router } from '@angular/router';
-import { Variables } from '../../common/variables';
+import { DateUtilService } from '../../common/date-util.service';
 
 @Component({
   selector:    'app-select-meeting',
@@ -13,7 +13,7 @@ export class SelectMeetingComponent implements OnInit {
   public comboOptionList: Array<Object> = [];
 
 
-  constructor(protected i18nService: I18nService, protected data: ApiClientService, private router: Router, protected globals: Variables) {
+  constructor(protected i18nService: I18nService, protected data: ApiClientService, private router: Router) {
     i18nService.get('COMMON_SELECT_MEETING_ROOM').subscribe((res) => {
         this.desCombo = res;
       });

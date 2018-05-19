@@ -7,16 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class RoomStatusComponent {
 
-	public listOpen = false;
-
 	@Input() public meetingId: number;
-	@Output() public toogleMenu: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 	constructor() {
 	}
 
-	public openMenu() {
-		this.listOpen = !this.listOpen;
-		this.toogleMenu.emit(this.listOpen);
-	}
 }

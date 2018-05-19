@@ -1,17 +1,13 @@
-<div class="d-flex flex-column h-100">
-	<app-room-header class="w-100" [day]="day" [time]="time" [image]="room.image" [name]="room.name"></app-room-header>
-
-	<app-room-status class="w-100" [meetingId]="currentMeeting.id" (toogleMenu)="toogleRoomsOrEvents($event)"></app-room-status>
-
-	<div class="slab-flex-1 d-flex flex-row p-0 m-0">
-		<div class="slab-flex-1 d-flex flex-column">
-			<app-current-meeting [meeting]="currentMeeting" class="slab-flex-1"></app-current-meeting>
-			<app-next-meeting [meetingsList]="meetingsList"></app-next-meeting>
-		</div>
-		<div class="next-availability">
-			<div class="pl-0 pr-0">
-				<app-room-availability></app-room-availability>
-			</div>
-		</div>
-	</div>
+<div class="h-100 d-flex flex-column">
+    <app-room-header class="w-100" [image]="room.image" [name]="room.name"></app-room-header>
+    <app-room-status class="w-100" [meetingId]="currentMeeting.id"></app-room-status>
+    <div class="slab-flex-1 d-flex flex-row">
+        <div class="slab-flex-1 d-flex flex-column">
+            <app-current-meeting [meeting]="currentMeeting" class="slab-flex-1"></app-current-meeting>
+            <app-next-meeting [meetingsList]="meetingsList"></app-next-meeting>
+        </div>
+        <div class="next-availability">
+            <app-room-availability></app-room-availability>
+        </div>
+    </div>
 </div>
