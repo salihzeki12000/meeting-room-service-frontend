@@ -8,5 +8,5 @@
     </div>
   </div>
 </div>
-<button (click)="full()" class="btn btn-primary m-4">Go fullscreen</button>
-<button (click)="fullOut()" class="btn btn-warning m-4">Left fullscreen</button>
+<button (click)="full()" class="btn btn-primary m-4">{{ 'COMMON_FULLSCREEN' | translate | async }}</button>
+<button (click)="fullOut()" class="btn btn-warning m-4">{{ 'COMMON_LEAVE_FULLSCREEN' | translate | async }}</button>
