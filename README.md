@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/systelab/meeting-room-service-frontend.svg?branch=master)](https://travis-ci.org/systelab/meeting-room-service-frontend)
+[![Known Vulnerabilities](https://snyk.io/test/github/systelab/meeting-room-service-frontend/badge.svg?targetFile=package.json)](https://snyk.io/test/github/systelab/meeting-room-service-frontend?targetFile=package.json)
+
 # meeting-room-service-frontend
 
 This project is the front-end of the Meeting Rooms Services application. 
