@@ -1,15 +1,20 @@
 .nextMeeting{
-    height: 17vh;
+    height: 15vh;
     padding-left: 100px;
-    overflow-x: auto;
 }
 
 .disableNextMeeting{
-    height: 17vh;
+    height: 15vh;
 }
 
 .meeting {
     display: inline-block;
     color:#939290;
     border-bottom: #ccc;
+    width: 25%;
+    white-space: nowrap;
+}
+.contentNextMeetings {
+    height: 6vh;
+    overflow-y: auto;
 }

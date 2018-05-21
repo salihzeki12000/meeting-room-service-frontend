@@ -1,7 +1,7 @@
 <div class="nextMeeting pl-3 pt-1 bg-grey-light" *ngIf="meetingsList.length > 0">
   <h3 class="lbTitle color-grey">{{ 'COMMON_NEXT_MEETINGS' | translate | async }} </h3>
-  <ul>
-    <li *ngFor="let meet of meetingsList" class="meeting  pl-3 pr-5">
+  <ul class="contentNextMeetings">
+    <li *ngFor="let meet of meetingsList" class="meeting  pb-4 pl-3 pr-5">
       <div>
         <label class="mb-0">{{meet.who}}</label>
         <div>
