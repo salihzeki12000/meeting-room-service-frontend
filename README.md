@@ -30,7 +30,7 @@ cd meeting-room-service-frontend
 
 ### .Net Core Back-end
 
-The actual version uses a REST Full API REST developed in .NET Core. 
+The actual version uses a RESTFul API REST developed in .NET Core. 
 
 Clone the [back-end][backend] before execute this front-end.
 
