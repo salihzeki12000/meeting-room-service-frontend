@@ -12,7 +12,7 @@
         <small><strong>{{ 'COMMON_NEXT_MEETING' | translate | async }} </strong></small> <small>{{pad(room.freeUntil.getHours())}}:{{pad(room.freeUntil.getMinutes())}}</small>
     </div>
   </li>
-  <li class="pt-5 pb-2 text-center" *ngIf="roomsList.length == 0">
+  <li class="pt-5 pb-2 text-center" *ngIf="roomsList.length === 0">
     <label>{{ 'COMMON_NO_ROOMS' | translate | async }}</label>
   </li>
 </ul>

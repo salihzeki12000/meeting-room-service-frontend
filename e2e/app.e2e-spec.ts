@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('pwadmin App', () => {
+describe('wrms App', () => {
   let page: AppPage;
 
   beforeEach(() => {
